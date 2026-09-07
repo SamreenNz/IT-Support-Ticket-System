@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Ticket</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="search-page"></body>
+
+    <div class="navbar">
+        <h1>IT Support Ticket Management System</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="welcome">
+            <h2>Search Ticket</h2>
+            <p>Search for a support ticket using its Ticket ID.</p>
+        </div>
+
+        <div class="card">
+
+            <form method="POST" action="/search-ticket">
+
+                <label for="ticket_id">Ticket ID</label>
+
+                <input type="number"
+                       id="ticket_id"
+                       name="ticket_id"
+                       placeholder="Enter Ticket ID"
+                       required>
+
+                <button type="submit">Search Ticket</button>
+
+            </form>
+
+        </div>
+
+
+        {% if ticket %}
+
+        <div class="card">
+
+            <h2>Ticket Details</h2>
+
+            <p><strong>Ticket ID:</strong> {{ ticket.ticket_id }}</p>
+
+            <p><strong>User Name:</strong> {{ ticket.user_name }}</p>
+
+            <p><strong>Issue:</strong> {{ ticket.issue }}</p>
+
+            <p><strong>Description:</strong> {{ ticket.description }}</p>
+
+            <p><strong>Priority:</strong> {{ ticket.priority }}</p>
+
+            <p><strong>Status:</strong> {{ ticket.status }}</p>
+
+            <p><strong>Assigned To:</strong>
+                {{ ticket.assigned_to or "Not Assigned" }}
+            </p>
+
+            <p><strong>Resolution:</strong>
+                {{ ticket.resolution or "Not Resolved" }}
+            </p>
+
+            <p><strong>Created At:</strong> {{ ticket.created_at }}</p>
+
+        </div>
+
+        {% elif request.method == "POST" %}
+
+        <div class="card">
+
+            <h3>Ticket Not Found</h3>
+
+            <p>No ticket was found with this Ticket ID.</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

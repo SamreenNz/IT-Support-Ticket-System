@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket Statistics</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="statistics-page">
+
+    <nav class="statistics-navbar">
+
+        <div class="statistics-logo">
+            IT SUPPORT
+        </div>
+
+        <div class="statistics-nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <main class="statistics-container">
+
+        <section class="statistics-header">
+
+            <p class="statistics-label">
+                IT SUPPORT ANALYTICS
+            </p>
+
+            <h1>Ticket Statistics</h1>
+
+            <p>
+                Overview of support ticket status and priority.
+            </p>
+
+        </section>
+
+
+        <!-- STATUS STATISTICS -->
+
+        <section class="statistics-section">
+
+            <h2>Ticket Status</h2>
+
+            <div class="statistics-grid">
+
+                <div class="statistics-card">
+                    <span>Total Tickets</span>
+                    <strong>{{ statistics.total or 0 }}</strong>
+                </div>
+
+                <div class="statistics-card">
+                    <span>Open Tickets</span>
+                    <strong>{{ statistics.open_tickets or 0 }}</strong>
+                </div>
+
+                <div class="statistics-card">
+                    <span>In Progress</span>
+                    <strong>{{ statistics.in_progress or 0 }}</strong>
+                </div>
+
+                <div class="statistics-card">
+                    <span>Resolved</span>
+                    <strong>{{ statistics.resolved or 0 }}</strong>
+                </div>
+
+                <div class="statistics-card">
+                    <span>Closed Tickets</span>
+                    <strong>{{ statistics.closed or 0 }}</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRIORITY STATISTICS -->
+
+        <section class="statistics-section">
+
+            <h2>Priority Distribution</h2>
+
+            <div class="statistics-grid priority-grid">
+
+                <div class="statistics-card">
+                    <span>Low Priority</span>
+                    <strong>{{ statistics.low_count or 0 }}</strong>
+                </div>
+
+                <div class="statistics-card">
+                    <span>Medium Priority</span>
+                    <strong>{{ statistics.medium_count or 0 }}</strong>
+                </div>
+
+                <div class="statistics-card">
+                    <span>High Priority</span>
+                    <strong>{{ statistics.high_count or 0 }}</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="statistics-footer">
+
+        <span>IT SUPPORT TICKET MANAGEMENT</span>
+
+        <span>Python • Flask • MySQL</span>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assign Ticket</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="assign-ticket-page"></body>
+
+    <div class="navbar">
+        <h1>IT Support Ticket Management System</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="welcome">
+            <h2>Assign Ticket</h2>
+            <p>Assign an IT support ticket to a support team member.</p>
+        </div>
+
+        <div class="card">
+
+            <form method="POST" action="/assign-ticket">
+
+                <label for="ticket_id">Ticket ID</label>
+
+                <input type="number"
+                       id="ticket_id"
+                       name="ticket_id"
+                       placeholder="Enter Ticket ID"
+                       required>
+
+                <label for="assigned_to">Assign To</label>
+
+                <input type="text"
+                       id="assigned_to"
+                       name="assigned_to"
+                       placeholder="Enter support team member name"
+                       required>
+
+                <button type="submit">
+                    Assign Ticket
+                </button>
+
+            </form>
+
+        </div>
+
+
+        {% if message %}
+
+        <div class="card">
+
+            <h3>{{ message }}</h3>
+
+            {% if ticket %}
+
+            <p>
+                <strong>Ticket ID:</strong>
+                {{ ticket.ticket_id }}
+            </p>
+
+            <p>
+                <strong>Issue:</strong>
+                {{ ticket.issue }}
+            </p>
+
+            <p>
+                <strong>Assigned To:</strong>
+                {{ ticket.assigned_to }}
+            </p>
+
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Support Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="dashboard-page">
+
+    <!-- Navigation -->
+    <nav class="dashboard-navbar">
+
+        <div class="dashboard-logo">
+            IT SUPPORT
+        </div>
+
+        <div class="dashboard-nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="dashboard-container">
+
+        <section class="dashboard-header">
+
+            <p class="dashboard-label">
+                IT SUPPORT MANAGEMENT
+            </p>
+
+            <h1>Support Dashboard</h1>
+
+            <p>
+                Monitor and manage IT support requests from one place.
+            </p>
+
+        </section>
+
+
+        <!-- Statistics -->
+
+        <section class="dashboard-stats">
+
+            <div class="dashboard-stat-card">
+                <span>Total Tickets</span>
+                <strong>{{ total_tickets }}</strong>
+            </div>
+
+            <div class="dashboard-stat-card">
+                <span>Open</span>
+                <strong>{{ open_tickets }}</strong>
+            </div>
+
+            <div class="dashboard-stat-card">
+                <span>In Progress</span>
+                <strong>{{ in_progress }}</strong>
+            </div>
+
+            <div class="dashboard-stat-card">
+                <span>Resolved</span>
+                <strong>{{ resolved }}</strong>
+            </div>
+
+            <div class="dashboard-stat-card">
+                <span>Closed</span>
+                <strong>{{ closed }}</strong>
+            </div>
+
+        </section>
+
+
+        <!-- Management -->
+
+        <section class="dashboard-management">
+
+            <h2>Ticket Management</h2>
+
+            <div class="dashboard-grid">
+
+                <a href="/create-ticket" class="dashboard-card">
+                    <h3>Create Ticket</h3>
+                    <p>Create a new IT support request.</p>
+                </a>
+
+                <a href="/tickets" class="dashboard-card">
+                    <h3>View Tickets</h3>
+                    <p>View all submitted support tickets.</p>
+                </a>
+
+                <a href="/search-ticket" class="dashboard-card">
+                    <h3>Search Ticket</h3>
+                    <p>Find a ticket using its ID.</p>
+                </a>
+
+                <a href="/update-status" class="dashboard-card">
+                    <h3>Update Status</h3>
+                    <p>Update the current ticket status.</p>
+                </a>
+
+                <a href="/assign-ticket" class="dashboard-card">
+                    <h3>Assign Ticket</h3>
+                    <p>Assign a ticket to support staff.</p>
+                </a>
+
+                <a href="/resolve-ticket" class="dashboard-card">
+                    <h3>Resolve Ticket</h3>
+                    <p>Add a resolution and resolve a ticket.</p>
+                </a>
+
+                <a href="/close-ticket" class="dashboard-card">
+                    <h3>Close Ticket</h3>
+                    <p>Close a resolved support ticket.</p>
+                </a>
+
+                <a href="/filter-tickets" class="dashboard-card">
+                    <h3>Filter Tickets</h3>
+                    <p>Filter tickets by status or priority.</p>
+                </a>
+
+                <a href="/statistics" class="dashboard-card">
+                    <h3>Statistics</h3>
+                    <p>View ticket statistics and insights.</p>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer class="dashboard-footer">
+
+        <span>
+            IT SUPPORT TICKET MANAGEMENT
+        </span>
+
+        <span>
+            Python • Flask • MySQL
+        </span>
+
+    </footer>
+
+</body>
+
+</html>

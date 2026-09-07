@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>View Tickets</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="tickets-page">
+
+    <!-- Navigation -->
+    <nav class="tickets-navbar">
+
+        <div class="tickets-logo">
+            IT SUPPORT
+        </div>
+
+        <div class="tickets-nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="tickets-container">
+
+        <!-- Header -->
+        <section class="tickets-header">
+
+            <p class="tickets-label">
+                TICKET MANAGEMENT
+            </p>
+
+            <h1>Support Tickets</h1>
+
+            <p>
+                View and monitor all IT support requests from one place.
+            </p>
+
+        </section>
+
+
+        <!-- Ticket Section -->
+        <section class="tickets-card">
+
+            <div class="tickets-card-header">
+
+                <div>
+                    <h2>All Tickets</h2>
+
+                    <p>
+                        Complete details of submitted support requests.
+                    </p>
+                </div>
+
+                <a href="/create-ticket" class="tickets-create-button">
+                    + Create Ticket
+                </a>
+
+            </div>
+
+
+            <!-- Ticket Details -->
+
+            <div class="ticket-list">
+
+                {% for ticket in tickets %}
+
+<div class="ticket-card">
+
+    <div class="ticket-top">
+        <span class="ticket-label">TICKET</span>
+        <span class="ticket-id">#{{ ticket.ticket_id }}</span>
+    </div>
+
+    <h3>{{ ticket.issue }}</h3>
+
+    <p class="ticket-description">
+        {{ ticket.description or "No description provided." }}
+    </p>
+
+    <div class="ticket-details">
+
+        <div>
+            <span>USER</span>
+            <strong>{{ ticket.user_name }}</strong>
+        </div>
+
+        <div>
+            <span>PRIORITY</span>
+            <strong>{{ ticket.priority }}</strong>
+        </div>
+
+        <div>
+            <span>STATUS</span>
+            <strong>{{ ticket.status }}</strong>
+        </div>
+
+        <div>
+            <span>ASSIGNED TO</span>
+            <strong>{{ ticket.assigned_to or "Not Assigned" }}</strong>
+        </div>
+
+        <div>
+            <span>CREATED AT</span>
+            <strong>{{ ticket.created_at }}</strong>
+        </div>
+
+        <div>
+            <span>RESOLUTION</span>
+            <strong>{{ ticket.resolution or "No resolution provided yet." }}</strong>
+        </div>
+
+    </div>
+
+</div>
+
+{% else %}
+
+<p>No support tickets found.</p>
+
+{% endfor %}
+
+                
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer class="tickets-footer">
+
+        <span>
+            IT SUPPORT TICKET MANAGEMENT
+        </span>
+
+        <span>
+            Python • Flask • MySQL
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>

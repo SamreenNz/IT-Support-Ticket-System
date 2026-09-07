@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Update Ticket Status</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="update-status-page"></body>
+
+    <div class="navbar">
+        <h1>IT Support Ticket Management System</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="welcome">
+            <h2>Update Ticket Status</h2>
+            <p>Update the current status of an IT support ticket.</p>
+        </div>
+
+        <div class="card">
+
+            <form method="POST" action="/update-status">
+
+                <label for="ticket_id">Ticket ID</label>
+
+                <input type="number"
+                       id="ticket_id"
+                       name="ticket_id"
+                       placeholder="Enter Ticket ID"
+                       required>
+
+                <label for="status">New Status</label>
+
+                <select id="status" name="status" required>
+
+                    <option value="Open">Open</option>
+
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+
+                    <option value="Resolved">
+                        Resolved
+                    </option>
+
+                    <option value="Closed">
+                        Closed
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Update Status
+                </button>
+
+            </form>
+
+        </div>
+
+
+        {% if message %}
+
+        <div class="card">
+
+            <h3>{{ message }}</h3>
+
+            {% if ticket %}
+
+            <p>
+                <strong>Ticket ID:</strong>
+                {{ ticket.ticket_id }}
+            </p>
+
+            <p>
+                <strong>Issue:</strong>
+                {{ ticket.issue }}
+            </p>
+
+            <p>
+                <strong>Current Status:</strong>
+                {{ ticket.status }}
+            </p>
+
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

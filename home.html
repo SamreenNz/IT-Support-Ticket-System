@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IT Support Ticket Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="landing-page"></body>
+
+    <!-- Navigation -->
+    <nav class="landing-navbar">
+
+        <div class="landing-logo">
+            IT SUPPORT
+        </div>
+
+        <div class="landing-nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="landing-hero">
+
+        <div class="hero-content">
+
+            <p class="hero-label">
+                IT SUPPORT MANAGEMENT
+            </p>
+
+            <h1>
+                IT Support Ticket
+                <span>Management</span>
+            </h1>
+
+            <p class="hero-main-text">
+                Manage, track, assign, and resolve IT support tickets
+                efficiently through one centralized system.
+            </p>
+
+            <p class="hero-secondary-text">
+                Whenever you need to report a technical issue, track an
+                existing request, or manage support tickets, this system
+                keeps everything organized in one place.
+            </p>
+
+            <a href="/dashboard" class="dashboard-button">
+                Open Dashboard
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <!-- Hero Visual -->
+        <div class="hero-visual">
+
+            <div class="visual-circle"></div>
+
+            <div class="ticket-preview">
+
+                <div class="preview-header">
+                    <span>Support Ticket</span>
+                    <span class="status-badge">
+                        In Progress
+                    </span>
+                </div>
+
+                <div class="preview-line"></div>
+
+                <div class="preview-content">
+
+                    <div class="preview-item">
+                        <small>Ticket ID</small>
+                        <strong>#1024</strong>
+                    </div>
+
+                    <div class="preview-item">
+                        <small>Issue</small>
+                        <strong>Network Connectivity</strong>
+                    </div>
+
+                    <div class="preview-item">
+                        <small>Assigned To</small>
+                        <strong>Support Team</strong>
+                    </div>
+
+                </div>
+
+                <div class="progress-container">
+
+                    <div class="progress-label">
+                        <span>Ticket Progress</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+
+        <span>Explore Features</span>
+
+        <div class="scroll-arrow">
+            ↓
+        </div>
+
+    </div>
+
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+
+        <div class="section-heading">
+
+            <p class="hero-label">
+                CORE FEATURES
+            </p>
+
+            <h2>
+                Everything you need to manage support
+            </h2>
+
+            <p>
+                A centralized workflow for handling IT support requests
+                from creation to resolution.
+            </p>
+
+        </div>
+
+
+        <div class="feature-container">
+
+            <!-- Feature 1 -->
+            <div class="landing-feature-card">
+
+                <div class="feature-number">
+                    01
+                </div>
+
+                <div class="feature-icon">
+                    +
+                </div>
+
+                <h3>
+                    Create Ticket
+                </h3>
+
+                <p>
+                    Report a new IT issue or request.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 2 -->
+            <div class="landing-feature-card">
+
+                <div class="feature-number">
+                    02
+                </div>
+
+                <div class="feature-icon">
+                    ◷
+                </div>
+
+                <h3>
+                    Track Tickets
+                </h3>
+
+                <p>
+                    Monitor ticket status and progress.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 3 -->
+            <div class="landing-feature-card">
+
+                <div class="feature-number">
+                    03
+                </div>
+
+                <div class="feature-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Resolve Issues
+                </h3>
+
+                <p>
+                    Resolve reported IT issues and manage and close
+                    support requests efficiently.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Call To Action -->
+    <section class="landing-cta">
+
+        <div>
+
+            <p class="hero-label">
+                IT SUPPORT CONTROL CENTER
+            </p>
+
+            <h2>
+                Ready to manage your support tickets?
+            </h2>
+
+            <p>
+                Access the centralized dashboard and manage your
+                support workflow from one place.
+            </p>
+
+        </div>
+
+        <a href="/dashboard" class="dashboard-button">
+            Open Dashboard
+            <span>→</span>
+        </a>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+
+        <div>
+            IT SUPPORT TICKET MANAGEMENT
+        </div>
+
+        <div>
+            Python • Flask • MySQL
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

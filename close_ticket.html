@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Close Ticket</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="close-ticket-page"></body>
+
+    <div class="navbar">
+        <h1>IT Support Ticket Management System</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="welcome">
+            <h2>Close Ticket</h2>
+            <p>Close a resolved IT support ticket.</p>
+        </div>
+
+        <div class="card">
+
+            <form method="POST" action="/close-ticket">
+
+                <label for="ticket_id">Ticket ID</label>
+
+                <input type="number"
+                       id="ticket_id"
+                       name="ticket_id"
+                       placeholder="Enter Ticket ID"
+                       required>
+
+                <button type="submit">
+                    Close Ticket
+                </button>
+
+            </form>
+
+        </div>
+
+        {% if message %}
+
+        <div class="card">
+
+            <h3>{{ message }}</h3>
+
+            {% if ticket %}
+
+            <p>
+                <strong>Ticket ID:</strong>
+                {{ ticket.ticket_id }}
+            </p>
+
+            <p>
+                <strong>Issue:</strong>
+                {{ ticket.issue }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ ticket.status }}
+            </p>
+
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

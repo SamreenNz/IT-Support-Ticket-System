@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Ticket</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="ticket-page">
+
+    <!-- Navigation -->
+    <nav class="ticket-navbar">
+
+        <div class="ticket-logo">
+            IT SUPPORT
+        </div>
+
+        <div class="ticket-nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="ticket-container">
+
+        <div class="ticket-header">
+
+            <p class="ticket-label">
+                TICKET MANAGEMENT
+            </p>
+
+            <h1>Create Support Ticket</h1>
+
+            <p>
+                Report a technical issue or submit a new IT support request.
+            </p>
+
+        </div>
+
+
+        <!-- Form Card -->
+        <div class="ticket-form-card">
+
+            <div class="ticket-form-heading">
+
+                <div>
+                    <h2>New Support Request</h2>
+
+                    <p>
+                        Enter the details of the issue below.
+                    </p>
+                </div>
+
+                <span class="ticket-form-number">
+                    #01
+                </span>
+
+            </div>
+
+
+            <form method="POST">
+
+
+                <!-- User Name -->
+                <div class="ticket-field">
+
+                    <label for="user_name">
+                        User Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="user_name"
+                        name="user_name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Issue -->
+                <div class="ticket-field">
+
+                    <label for="issue">
+                        Issue Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="issue"
+                        name="issue"
+                        placeholder="e.g. Network connectivity issue"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Description -->
+                <div class="ticket-field">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        placeholder="Describe the issue in detail..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Priority -->
+                <div class="ticket-field">
+
+                    <label for="priority">
+                        Priority
+                    </label>
+
+                    <select
+                        id="priority"
+                        name="priority"
+                        required
+                    >
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Actions -->
+                <div class="ticket-form-actions">
+
+                    <a href="/dashboard" class="ticket-cancel">
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="ticket-submit"
+                    >
+                        Create Ticket
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="ticket-footer">
+
+        <span>
+            IT SUPPORT TICKET MANAGEMENT
+        </span>
+
+        <span>
+            Python • Flask • MySQL
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>

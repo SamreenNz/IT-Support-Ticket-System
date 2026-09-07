@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Filter Tickets</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="filter-tickets-page"></body>
+
+    <div class="navbar">
+        <h1>IT Support Ticket Management System</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="welcome">
+            <h2>Filter Tickets</h2>
+            <p>Filter support tickets by status or priority.</p>
+        </div>
+
+        <div class="card">
+
+            <form method="POST" action="/filter-tickets">
+
+                <label for="status">Status</label>
+
+                <select id="status" name="status">
+
+                    <option value="">All Statuses</option>
+
+                    <option value="Open"
+                        {% if selected_status == "Open" %}selected{% endif %}>
+                        Open
+                    </option>
+
+                    <option value="In Progress"
+                        {% if selected_status == "In Progress" %}selected{% endif %}>
+                        In Progress
+                    </option>
+
+                    <option value="Resolved"
+                        {% if selected_status == "Resolved" %}selected{% endif %}>
+                        Resolved
+                    </option>
+
+                    <option value="Closed"
+                        {% if selected_status == "Closed" %}selected{% endif %}>
+                        Closed
+                    </option>
+
+                </select>
+
+
+                <label for="priority">Priority</label>
+
+                <select id="priority" name="priority">
+
+                    <option value="">All Priorities</option>
+
+                    <option value="Low"
+                        {% if selected_priority == "Low" %}selected{% endif %}>
+                        Low
+                    </option>
+
+                    <option value="Medium"
+                        {% if selected_priority == "Medium" %}selected{% endif %}>
+                        Medium
+                    </option>
+
+                    <option value="High"
+                        {% if selected_priority == "High" %}selected{% endif %}>
+                        High
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Apply Filter
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Filtered Tickets</h2>
+
+            {% if tickets %}
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Issue</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Assigned To</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for ticket in tickets %}
+
+                    <tr>
+                        <td>{{ ticket.ticket_id }}</td>
+                        <td>{{ ticket.user_name }}</td>
+                        <td>{{ ticket.issue }}</td>
+                        <td>{{ ticket.priority }}</td>
+                        <td>{{ ticket.status }}</td>
+                        <td>
+                            {{ ticket.assigned_to or "Not Assigned" }}
+                        </td>
+                        <td>{{ ticket.created_at }}</td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <p>No tickets found for the selected filters.</p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
